@@ -1,2 +1,0 @@
-# ReactGitFirebase
-Created with CodeSandbox
