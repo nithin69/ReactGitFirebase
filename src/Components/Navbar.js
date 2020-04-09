@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
 export default function MenuExamplePointing() {
-  const [activeItem, setActiveItem] = useState("home");
   const context = useContext(UserContext);
+  const [activeItem, setActiveItem] = useState("signin");
+  const [activeItem2, setActiveItem2] = useState("home");
 
   console.log("activeItem", activeItem);
   return (
@@ -13,14 +14,19 @@ export default function MenuExamplePointing() {
       <Menu pointing>
         {context.user?.email ? (
           <>
-            <Menu.Item active={activeItem === "home"}>
-              <Link to="/" onClick={() => setActiveItem("home")}>
+            <Menu.Item active={activeItem2 === "home"}>
+              <Link to="/" onClick={() => setActiveItem2("home")}>
                 Home{" "}
                 {context.user?.email ? context.user.email : "No User Specified"}
               </Link>
             </Menu.Item>
-            <Menu.Item active={activeItem === "logout"}>
-              <Link to="/logout" onClick={() => setActiveItem("logout")}>
+            <Menu.Item>
+              <Link
+                onClick={() => {
+                  context.setUser(null);
+                }}
+              >
+                {/* onClick={() => setActiveItem("logout")}> */}
                 LogOut
               </Link>
             </Menu.Item>

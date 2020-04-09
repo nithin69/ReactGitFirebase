@@ -10,8 +10,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
 //firebase
-// import firebase from "firebase";
-// import "firebase/auth";
+import firebase from "firebase/app";
+import "firebase/auth";
 
 //components
 import Home from "./Pages/Home";
@@ -19,12 +19,14 @@ import Signin from "./Pages/Signin";
 import Signup from "./Pages/Signup";
 import PageNotFound from "./Pages/PageNotFound";
 import { UserContext } from "./context/UserContext";
-import Footer from "./Components/Footer";
+// import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 
-// import firebaseConfig from "./Config/firebaseConfig";
+import firebaseConfig from "./Config/firebaseConfig";
+
+console.log("firebase", firebase.app.length, firebaseConfig);
 //init firebase
-// firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -49,11 +51,5 @@ export default function App() {
     </Router>
   );
 
-  return (
-    <div className="App">
-      {router}
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
+  return <div className="App">{router}</div>;
 }
