@@ -8,7 +8,7 @@
   ],
   "main": "src/index.js",
   "dependencies": {
-    "axios": "0.19.2",
+    "axios": "1.6.0",
     "bootstrap": "4.4.1",
     "firebase": "7.13.2",
     "react": "16.12.0",
